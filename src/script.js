@@ -38,10 +38,30 @@ function genarateQuestion() {
   for (let i = 0; i < answerButtons.length; i += 1) {
     if (i === randomAnswerNumber) {
       answerButtons[i].innerHTML = calc(num1, num2, sing);
+      answerButtons[i].classList.add("right");
     } else {
       answerButtons[i].innerHTML = getRandomInt(100);
+      answerButtons[i].classList.add("wrong");
     }
   }
 }
 
+function removeClasses() {
+  for (let i = 0; i < answerButtons.length; i += 1) {
+    if (answerButtons[i].classList.contains("right")) {
+      answerButtons[i].classList.remove("right");
+    }
+
+    if (answerButtons[i].classList.contains("wrong")) {
+      answerButtons[i].classList.remove("wrong");
+    }
+  }
+}
+
+setInterval(removeClasses, 1000)
+
 startButton.addEventListener("click", startGame);
+
+for (let i = 0; i < answerButtons.length; i += 1) {
+  answerButtons[i].addEventListener("click", genarateQuestion);
+}
