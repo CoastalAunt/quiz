@@ -1,3 +1,4 @@
+
 /* DOM */
 
 let startButton = document.querySelector(".start-button");
