@@ -1,36 +1,42 @@
-let startButton = document.querySelector(".start-button");
-let startWrapper = document.querySelector(".start-wrapper ");
-let quizWrapper = document.querySelector(".quiz-wrapper ");
-let question_heading = document.getElementsByClassName("question_heading");
-let change = document.getElementsByClassName("change");
+let startButton = document.querySelector(".start-button")
+let startWrapper = document.querySelector(".start-wrapper")
+let quizWrapper = document.querySelector(".quiz-wrapper")
+let answers = document.querySelectorAll(".answer_row button")
+let quetion = document.querySelector(".question_heading")
+let c = document.querySelector(".answer_1")
+
+
+
 
 function startGame() {
     startWrapper.classList.add("hide");
     quizWrapper.classList.remove("hide");
 };
 
-
-
-startButton.addEventListener("click", startGame);
-
-
-
-question_heading.textContent = "'nj gbplf ";
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
 
 
 function generateQuestion() {
 
-    let a = randomInt(1, 10);
-    let b = randomInt(1, 10);
-
-    let sign = Math.random() < 0.5 ? "+" : "-";
-
-    if (sign === "+") {
+    let a = getRandomInt(50);
+    let b = getRandomInt(50);
+    let signs = getRandomInt(2) < 0.5 ? "+" : "-";
+    let c = eval(`${a} ${signs} ${b}`);
+    if (signs === "+") {
         correctAnswer = a + b;
     } else {
         correctAnswer = a - b;
     }
 
-    question_heading.textContent = `${a} ${sign} ${b} = ?`;
+    quetion.textContent = `${a} ${signs} ${b} = ?`;
+    c.textContent = 'c';
 }
 
+
+
+startButton.addEventListener("click", startGame);
+
+
+generateQuestion()

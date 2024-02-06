@@ -78,12 +78,12 @@ body {
   margin: 0;
 }
 
-.answer-row {
+.answer_row {
   display: flex;
   gap: 10px;
 }
 
-.answer-row>button {
+.answer_row>button {
   width: 150px;
   height: 70px;
   background-color: #b45f06;
@@ -93,10 +93,10 @@ body {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.answer-row>button:hover {
+.answer_row>button:hover {
   box-shadow: none;
 }
 
-.answer-row>button:active {
+.answer_row>button:active {
   opacity: 0.7;
 }
